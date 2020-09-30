@@ -26,6 +26,7 @@ const closeMenu = function () {
   catalog.classList.remove('open');
   overlay.classList.remove('active');
   closeSubMenu();
+  document.removeEventListener('keydown', onEscBtn);
 };
 const openSubMenu = event => {
   event.preventDefault();
@@ -40,13 +41,14 @@ const openSubMenu = event => {
 const closeSubMenu = () => {
   subCatalog.classList.remove('subopen');
 };
+const onEscBtn = function (event) {
+  if (event.code === 'Escape') {
+    closeMenu();
+  }
+};
 btnBurger.addEventListener('click', openMenu);
 btnClose.addEventListener('click', closeMenu);
 overlay.addEventListener('click', closeMenu);
 btnReturn.addEventListener('click', closeSubMenu);
-document.addEventListener('keydown', event => {
-  if (event.code === 'Escape') {
-    closeMenu();
-  }
-});
+document.addEventListener('keydown', onEscBtn);
 catalog.addEventListener('click', openSubMenu);
