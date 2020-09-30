@@ -61,5 +61,4 @@ const generateSubCatalog = () => {
     </div>`;
   document.body.insertAdjacentHTML('afterbegin', subCatalog);
 };
-
-generateSubCatalog();
+export default generateSubCatalog;

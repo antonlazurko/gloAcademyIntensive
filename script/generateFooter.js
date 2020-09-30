@@ -48,5 +48,4 @@ const generateFooter = () => {
     </footer>`;
   document.body.insertAdjacentHTML('beforeend', footer);
 };
-
-generateFooter();
+export default generateFooter;
