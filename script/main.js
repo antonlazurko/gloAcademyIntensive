@@ -1,8 +1,23 @@
+'use strict';
 const btnBurger = document.querySelector('.btn-burger');
 const catalog = document.querySelector('.catalog');
-const overlay = document.querySelector('.overlay');
 const btnClose = document.querySelector('.btn-close');
-console.log(btnClose);
+const btnReturn = document.querySelector('.btn-return');
+const subCatalog = document.querySelector('.subcatalog');
+const subCatalogHeader = document.querySelector('.subcatalog-header');
+const overlay = document.createElement('div');
+overlay.classList.add('overlay');
+document.body.insertAdjacentElement('beforeend', overlay);
+// const footer = document.createElement('footer');
+// console.log(footer);
+// const catalog = document.createElement('div');
+// catalog.classList.add('catalog');
+// document.body.insertAdjacentElement('beforeend', catalog);
+
+// const subCatalog = document.createElement('div');
+// subCatalog.classList.add('subCatalog');
+// document.body.insertAdjacentElement('beforeend', subCatalog);
+
 const openMenu = function () {
   catalog.classList.add('open');
   overlay.classList.add('active');
@@ -10,7 +25,28 @@ const openMenu = function () {
 const closeMenu = function () {
   catalog.classList.remove('open');
   overlay.classList.remove('active');
+  closeSubMenu();
+};
+const openSubMenu = event => {
+  event.preventDefault();
+  const target = event.target;
+  const itemList = event.target.closest('.catalog-list__item');
+  if (itemList) {
+    subCatalogHeader.innerHTML = itemList.innerHTML;
+    subCatalogHeader.href = target.href;
+    subCatalog.classList.add('subopen');
+  }
+};
+const closeSubMenu = () => {
+  subCatalog.classList.remove('subopen');
 };
 btnBurger.addEventListener('click', openMenu);
-btnClose.addEventListener('click,', closeMenu);
-overlay.addEventListener('click,', closeMenu);
+btnClose.addEventListener('click', closeMenu);
+overlay.addEventListener('click', closeMenu);
+btnReturn.addEventListener('click', closeSubMenu);
+document.addEventListener('keydown', event => {
+  if (event.code === 'Escape') {
+    closeMenu();
+  }
+});
+catalog.addEventListener('click', openSubMenu);

@@ -33,10 +33,14 @@
     <meta name="theme-color" content="#0058ab" />
     <title>ИКЕА - официальный интернет-магазин мебели - IKEA</title>
     <link rel="stylesheet" href="styles/styles.css" />
-    <script src="script/main.js" defer></script>
+    <script src="script/generateHeader.js" defer type="module"></script>
+    <script src="script/generateCatalog.js" defer type="module"></script>
+    <script src="script/generateSubCatalog.js" defer type="module"></script>
+    <script src="script/generateFooter.js" defer type="module"></script>
+    <script src="script/main.js" defer type="module"></script>
   </head>
   <body>
-    <header>
+    <!-- <header>
       <div class="container">
         <div class="header">
           <button class="btn btn-burger" aria-label="открыть меню">
@@ -116,7 +120,7 @@
           </a>
         </div>
       </div>
-    </header>
+    </header> -->
     <main>
       <div class="container">
         <h1 class="main-header">ИКЕА. Сила дома.</h1>
@@ -151,7 +155,7 @@
         </aside>
       </div>
     </main>
-    <footer>
+    <!-- <footer>
       <div class="container">
         <div class="footer">
           <div class="footer-catalog">
@@ -197,9 +201,9 @@
           </div>
         </div>
       </div>
-    </footer>
+    </footer> -->
 
-    <div class="catalog">
+    <!-- <div class="catalog">
       <button
         type="button"
         class="btn btn-close catalog-btn"
@@ -242,9 +246,9 @@
           <a href="goods.html?cat=Декор">Декор</a>
         </li>
       </ul>
-    </div>
+    </div>-->
 
-    <div class="subcatalog">
+    <!-- <div class="subcatalog">
       <button
         type="button"
         class="btn btn-return catalog-btn"
@@ -303,8 +307,8 @@
           >
         </li>
       </ul>
-    </div>
+    </div> -->
 
-    <div class="overlay"></div>
+    <!-- <div class="overlay"></div> -->
   </body>
 </html>
